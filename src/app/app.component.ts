@@ -17,7 +17,6 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
       />
       <label for="myCheckbox">Checkbox</label>
     </div>
-    <button (click)="focusCheckbox()">Focus checkbox</button>
   `,
   styles: [
     `
@@ -42,9 +41,6 @@ export class AppComponent {
     console.log(e);
   }
 
-  focusCheckbox() {
-    this.selectAll.nativeElement.focus();
-  }
 
   toggleCheckbox() {
     this.renderCheckbox = !this.renderCheckbox;

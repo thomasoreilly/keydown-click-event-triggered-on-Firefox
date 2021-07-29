@@ -2,42 +2,23 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  template: `
-    <div>
-      <button (keydown)="toggleCheckbox()">Toggle checkbox</button>
-    </div>
+  template: `   
+    <button (keydown)="toggleCheckbox()">Toggle with space key</button>
     <div *ngIf="renderCheckbox">
       <input
-        id="myCheckbox"
         type="checkbox"
         #selectAll
-        [checked]="allItemsSelected"
-        [indeterminate]="someItemsSelected"
         (click)="onSelectAll($event)"
       />
       <label for="myCheckbox">Checkbox</label>
     </div>
   `,
-  styles: [
-    `
-      input[type='checkbox'] {
-        position: relative;
-        width: 1em;
-        height: 1em;
-        border: 1px solid blue;
-        vertical-align: -2px;
-        color: green;
-      }
-    `
-  ]
 })
 export class AppComponent {
-  allItemsSelected = false;
-  someItemsSelected = false;
   renderCheckbox = false;
   @ViewChild('selectAll', { read: ElementRef }) selectAll: ElementRef;
 
-  onSelectAll(e) {
+  onSelectAll(e: MouseEvent | KeyboardEvent) {
     console.log(e);
   }
 
